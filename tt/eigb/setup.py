@@ -39,6 +39,7 @@ def configuration(parent_package='', top_path=None):
             'mytt',
             'print_lib',
         ],
+        extra_f90_compile_args=['-fallow-argument-mismatch'],
     )
 
     return config

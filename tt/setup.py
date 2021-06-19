@@ -59,9 +59,12 @@ def configuration(parent_package='', top_path=None):
         delegate_options_to_subpackages=True,
         quiet=False,
     )
-
+    buildinfo={}
+    buildinfo['extra_f90_compiler_args']=['--fallow-argument-mismatch']
     config.add_library('print_lib', sources=[join(PRINT_DIR, x) for x in PRINT_SRC])
-    config.add_library('mytt', sources=[join(TTFORT_DIR, x) for x in TTFORT_SRC])
+    config.add_library('mytt', sources=[join(TTFORT_DIR, x) for x in TTFORT_SRC],
+            extra_f90_compile_args=['-fallow-argument-mismatch'],
+    )
 
     config.add_subpackage('core')
     config.add_subpackage('amen')

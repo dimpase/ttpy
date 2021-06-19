@@ -40,6 +40,7 @@ def configuration(parent_package='', top_path=None):
     config.add_extension(
         'core_f90',
         sources=ttcore_src,
+        extra_f90_compile_args=['-fallow-argument-mismatch'],
     )
 
     return config

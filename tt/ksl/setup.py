@@ -37,6 +37,8 @@ def configuration(parent_package='', top_path=None):
     config.add_library(
         'expokit',
         sources=expokit_src,
+            extra_f90_compile_args=['-fallow-argument-mismatch'],
+            extra_f77_compile_args=['-fallow-argument-mismatch'],
     )
     config.add_extension(
         'dyn_tt',
@@ -51,6 +53,7 @@ def configuration(parent_package='', top_path=None):
             'expokit',
             'mytt',
         ],
+        extra_f90_compile_args=['-fallow-argument-mismatch'],
     )
 
     return config
